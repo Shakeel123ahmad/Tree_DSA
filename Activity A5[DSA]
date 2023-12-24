@@ -1,0 +1,69 @@
+#include<iostream>
+using namespace std;
+class Node {
+public:
+	Node* left=NULL;
+	Node* right=NULL;
+	int key;
+
+	Node(int key)
+	{
+		this->key = key;
+	}
+};
+class Binary_tree {
+public:
+	Node* root;
+	Binary_tree()
+	{
+		root = NULL;
+	}
+	void Inorder(Node* root)
+	{
+		if (root != NULL)
+		{
+			Inorder(root->left);
+			cout << root->key<<" ";
+			Inorder(root->right);
+}
+	}
+	void PreOrder(Node* root)
+	{
+		if (root != NULL)
+		{
+			cout << root->key<<" ";
+			PreOrder(root->left);
+			PreOrder(root->right);
+		}
+	}
+	void PostOrder(Node* root)
+	{
+		if (root != NULL)
+		{
+			
+			PostOrder(root->left);
+			PostOrder(root->right);
+			cout << root->key<<" ";
+		}
+
+	}
+	void Level_Orederprint(Node* root)
+	{
+		if (root == NULL)return;
+		
+	}
+};
+int main()
+{
+	Binary_tree bt;
+	bt.root = new Node(10);
+	bt.root->left= new Node(12);
+	bt.root->right = new Node(13);
+	cout << "In-Order: ";
+	bt.Inorder(bt.root);
+	cout << "Pre-Order:";
+	bt.PreOrder(bt.root);
+	cout << "Post-Order: ";
+	bt.PostOrder(bt.root);
+
+}
